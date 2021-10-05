@@ -8,7 +8,7 @@
 
 ## Introduction
 
-[ESRC](http://esrc.co.kr) provides the vision API and SDK for your mobile app, enabling real-time analyzing heart response using a camera.
+[ESRC](http://esrc.co.kr) provides the vision API and SDK for your mobile app, enabling real-time analyzing heart response and recognizing emotion using a camera.
 
 <br />
 
@@ -95,7 +95,7 @@ getSupportFragmentManager().beginTransaction()
 
 ### Step 3: Start the ESRC Heart SDK
 
-Start the ESRC Heart SDK to recognize your facial expression, heart response and emotion. To the `start()` method, pass the `ENABLE_DRAW` parameter for whether to visualize the face bounding box and the `ESRC.ESRCHandler` to handle the results. You should implement the callback method of `ESRC.ESRCHandler` interface. So, you can receive the results of face, facial landmark, head pose, attention, facial expression, heart rate, heart rate variability and engagement. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Heart-Android)**.
+Start the ESRC Heart SDK to recognize your heart response and emotion. To the `start()` method, pass the `ENABLE_DRAW` parameter for whether to visualize the face bounding box and the `ESRC.ESRCHandler` to handle the results. You should implement the callback method of `ESRC.ESRCHandler` interface. So, you can receive the results of face, heart rate, heart rate variability and emotion. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Heart-Android)**.
 
 ```java
 ESRC.start(ENABLE_DRAW, new ESRC.ESRCHandler() {
