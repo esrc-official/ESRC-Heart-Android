@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">ESRC Heart</string>
+
+    <!-- Main Activity -->
+    <string name="main_facebox_text">
+        Please look ahead without movement
+    </string>
+
+    <string name="main_facebox_image_desc">
+        FaceBoxImage
+    </string>
+
+    <string name="main_hr_title_text">
+        Heart Rate
+    </string>
+
+    <string name="main_hr_unit_text">
+        bpm
+    </string>
+
+    <string name="main_hrv_sdnn_title_text">
+        HRV-SDNN
+    </string>
+
+    <string name="main_hrv_sdnn_unit_text">
+        ms
+    </string>
+
+    <string name="main_hrv_rmssd_title_text">
+        HRV-RMSSD
+    </string>
+
+    <string name="main_hrv_rmssd_unit_text">
+        ms
+    </string>
+
+    <string name="main_hrv_lnlf_title_text">
+        HRV-lnLF
+    </string>
+
+    <string name="main_hrv_lnlf_unit_text">
+        ms2
+    </string>
+
+    <string name="main_hrv_lnhf_title_text">
+        HRV-lnHF
+    </string>
+
+    <string name="main_hrv_lnhf_unit_text">
+        ms2
+    </string>
+
+    <string name="main_ans_balance_title_text">
+        ANS Balance
+    </string>
+
+    <string name="main_ans_balance_pns_text">
+        PNS
+    </string>
+
+    <string name="main_ans_balance_sns_text">
+        SNS
+    </string>
+
+    <string name="main_ans_balance_range_text">
+<!--        "         ◀ Normal ▶     "-->
+    </string>
+
+</resources>
