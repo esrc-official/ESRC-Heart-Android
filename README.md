@@ -48,9 +48,9 @@ android {
 
 if you would like to try the sample app specifically fit to your usage, you can do so by following the steps below.
 
-### Step 1: Initialize the ESRC SDK
+### Step 1: Initialize the ESRC Heart SDK
 
-Initialization binds the ESRC SDK to Android’s context, thereby allowing it to use a camera in your mobile. To the `init()` method, pass the **App ID** of your ESRC application to initialize the ESRC SDK and the **ESRCLicenseHandler** to received callback for validation of the App ID.
+Initialization binds the ESRC Heart SDK to Android’s context, thereby allowing it to use a camera in your mobile. To the `init()` method, pass the **App ID** of your ESRC application to initialize the ESRC Heart SDK and the **ESRCLicenseHandler** to received callback for validation of the App ID.
 
 ```java
 ESRC.init(APP_ID, getApplicationContext(), new ESRCLicense.ESRCLicenseHandler() {
@@ -66,11 +66,11 @@ ESRC.init(APP_ID, getApplicationContext(), new ESRCLicense.ESRCLicenseHandler() 
 });
 ```
 
-> Note: The `ESRC.init()` method must be called once across your Android app. It is recommended to initialize the ESRC SDK in the `onCreate()` method of the Application instance.
+> Note: The `ESRC.init()` method must be called once across your Android app. It is recommended to initialize the ESRC Heart SDK in the `onCreate()` method of the Application instance.
 
 ### (Optional) Step 2: Bind the ESRC Fragment
 
-If you don't want to develop a layout that uses the camera, you can ues the ESRC Fragment provided from the ESRC SDK. Include the **container** to bind the ESRC Fragment in your layout `.xml` file. Please skip the Step 4: Feed the ESRC SDK. The ESRC Fragment will feed the image to our SDK itself.
+If you don't want to develop a layout that uses the camera, you can ues the ESRC Fragment provided from the ESRC Heart SDK. Include the **container** to bind the ESRC Fragment in your layout `.xml` file. Please skip the Step 4: Feed the ESRC Heart SDK. The ESRC Fragment will feed the image to our SDK itself.
 
 ```xml
 <FrameLayout
@@ -81,7 +81,7 @@ If you don't want to develop a layout that uses the camera, you can ues the ESRC
 
 > Note: FrameLayout is just one of examples. You can change to other layout type to purpose your app.
 
-Bind the ESRC Fragment to display the image taken with the camera on the screen. ESRC Fragment send the image to the ESRC SDK in real-time to be able to recognize facial expression, heart response and emotion. ESRC Fragment automatically display the image to fit the size of your custom layout.
+Bind the ESRC Fragment to display the image taken with the camera on the screen. ESRC Fragment send the image to the ESRC Heart SDK in real-time to be able to recognize heart response and emotion. ESRC Fragment automatically display the image to fit the size of your custom layout.
 
 ```java
 // Bind LAYOUT.xml on your Activity.
@@ -93,12 +93,12 @@ getSupportFragmentManager().beginTransaction()
     .commit();
 ```
 
-### Step 3: Start the ESRC SDK
+### Step 3: Start the ESRC Heart SDK
 
-Start the ESRC SDK to recognize your facial expression, heart response and emotion. To the `start()` method, pass the `ENABLE_HRV` and `ENABLE_DRAW` parameters for whether to analyze HRV and whether to visualize the face bounding box and the `ESRC.ESRCHandler` to handle the results. You should implement the callback method of `ESRC.ESRCHandler` interface. So, you can receive the results of face, facial landmark, head pose, attention, facial expression, heart rate, heart rate variability and engagement. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Heart-Android)**.
+Start the ESRC Heart SDK to recognize your facial expression, heart response and emotion. To the `start()` method, pass the `ENABLE_DRAW` parameter for whether to visualize the face bounding box and the `ESRC.ESRCHandler` to handle the results. You should implement the callback method of `ESRC.ESRCHandler` interface. So, you can receive the results of face, facial landmark, head pose, attention, facial expression, heart rate, heart rate variability and engagement. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Heart-Android)**.
 
 ```java
-ESRC.start(ENABLE_HRV, ENABLE_DRAW, new ESRC.ESRCHandler() {
+ESRC.start(ENABLE_DRAW, new ESRC.ESRCHandler() {
     @Override
     public void onDetectedFace(ESRCTYPE.Face face, ESRCException e) {
         if(e != null) {
@@ -108,7 +108,7 @@ ESRC.start(ENABLE_HRV, ENABLE_DRAW, new ESRC.ESRCHandler() {
 	// The face is detected.
         // Through the “face” parameter of the onDetectedFace() callback method,
         // you can get the location of the face from the result object
-        // that ESRC SDK has passed to the onDetectedFace().
+        // that ESRC Heart SDK has passed to the onDetectedFace().
         …
     }
     
@@ -121,17 +121,17 @@ ESRC.start(ENABLE_HRV, ENABLE_DRAW, new ESRC.ESRCHandler() {
 });
 ```
 
-### (Optional) Step 4: Feed the ESRC SDK
+### (Optional) Step 4: Feed the ESRC Heart SDK
 
-Feed `OpenCV Mat` on the ESRC SDK. To the `feed()` method, pass the `Mat` image received using a camera in real-time. Please do it at 10 fps. You can skip this step if you follow Step 2: Bind the ESRC Fragment.
+Feed `OpenCV Mat` on the ESRC Heart SDK. To the `feed()` method, pass the `Mat` image received using a camera in real-time. Please do it at 10 fps. You can skip this step if you follow Step 2: Bind the ESRC Fragment.
 
 ```java
 ESRC.feed(Mat);
 ```
 
-### Step 5: Stop the ESRC SDK
+### Step 5: Stop the ESRC Heart SDK
 
-When your app is not use the camera or destroyed, stop the ESRC SDK.
+When your app is not use the camera or destroyed, stop the ESRC Heart SDK.
 
 ```java
 ESRC.stop();
@@ -153,4 +153,4 @@ cd ESRC-Heart-Android
 
 ## Reference
 
-For further detail on ESRC SDK for Android, reter to [ESRC Heart SDK for Android README](https://github.com/esrc-official/ESRC-Heart-SDK-Android/blob/master/README.md).
+For further detail on ESRC Heart SDK for Android, reter to [ESRC Heart SDK for Android README](https://github.com/esrc-official/ESRC-Heart-SDK-Android/blob/master/README.md).
