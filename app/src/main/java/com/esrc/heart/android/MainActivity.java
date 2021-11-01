@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
 
     // Property
     private ESRCType.Property mProperty = new ESRCType.Property(
-            true,  // Whether visualize result or not.
-            true,  // Wheter analyze measurement environment or not.
+            true,  // Whether visualize result or not. It is only valid If you bind the ESRC Fragment (i.e., Step 2).
+            true,  // Whether analyze measurement environment or not.
             true,  // Whether detect face or not.
             true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
             true);  // Whether analyze HRV not not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
