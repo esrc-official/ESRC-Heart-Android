@@ -36,12 +36,19 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
     private static final String TAG = "MainActivity";
-    private static final String APP_ID = "CD57685A-15AC-5814-D517-1EF321BA39C5";  // Application ID.
-    private static final boolean ENABLE_DRAW = false;  // Enablement of visualization.
+    private static final String APP_ID = "";  // Application ID.
 
     // Permission
     private static final int PERMISSIONS_REQUEST_CODE = 1000;
     private static final String[] PERMISSIONS = {INTERNET, CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE};
+
+    // Property
+    private ESRCType.Property mProperty = new ESRCType.Property(
+            true,  // Whether visualize result or not.
+            true,  // Wheter analyze measurement environment or not.
+            true,  // Whether detect face or not.
+            true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
+            true);  // Whether analyze HRV not not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
 
     // Layout variables for FaceBox
     private TextView mFaceBoxText;
@@ -228,7 +235,16 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         mANSBalanceSpinner.setVisibility(View.GONE);
 
         // Start ESRC
-        ESRC.start(ENABLE_DRAW, new ESRC.ESRCHandler() {
+        ESRC.start(mProperty, new ESRC.ESRCHandler() {
+            @Override
+            public void onAnalyzedMeasureEnv(ESRCType.MeasureEnv measureEnv, ESRCException e) {
+                if (e == null) {
+                    Log.d(TAG, "onAnalyzedMeasureEnv: " + measureEnv.toString());
+                } else {
+                    e.printStackTrace();
+                }
+            }
+
             @Override
             public void onDetectedFace(ESRCType.Face face, ESRCException e) {
                 if (e == null) {
