@@ -36,7 +36,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
     private static final String TAG = "MainActivity";
-    private static final String APP_ID = "99999999-9999-9999-9999-999999999999";  // Application ID.
+    private static final String APP_ID = "";  // Application ID.
 
     // Permission
     private static final int PERMISSIONS_REQUEST_CODE = 1000;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
 
     // Property
     private ESRCType.Property mProperty = new ESRCType.Property(
-            true,  // Whether visualize result or not. It is only valid If you bind the ESRC Fragment (i.e., Step 2).
+            false,  // Whether visualize result or not. It is only valid If you bind the ESRC Fragment (i.e., Step 2).
             true,  // Whether analyze measurement environment or not.
             true,  // Whether detect face or not.
             true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
