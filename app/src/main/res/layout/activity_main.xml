@@ -633,9 +633,9 @@
                     android:id="@+id/ans_balance_bar_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="visible"
-                    app:constraint_referenced_ids="ans_balance_seekbar, ans_balance_bar,
-                    ans_balance_pns_text, ans_balance_sns_text, ans_balance_range_text" />
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="ans_balance_seekbar, ans_balance_pns_text,
+                    ans_balance_sns_text, ans_balance_bar, ans_balance_range_text" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
