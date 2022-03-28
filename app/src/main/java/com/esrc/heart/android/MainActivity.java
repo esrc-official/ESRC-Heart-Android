@@ -23,11 +23,11 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.esrc.sdk.android.ESRC;
-import com.esrc.sdk.android.ESRCException;
-import com.esrc.sdk.android.ESRCFragment;
-import com.esrc.sdk.android.ESRCLicense;
-import com.esrc.sdk.android.ESRCType;
+import com.esrc.heart.sdk.android.ESRC;
+import com.esrc.heart.sdk.android.ESRCException;
+import com.esrc.heart.sdk.android.ESRCFragment;
+import com.esrc.heart.sdk.android.ESRCLicense;
+import com.esrc.heart.sdk.android.ESRCType;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.INTERNET;
@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             true,  // Whether analyze measurement environment or not.
             true,  // Whether detect face or not.
             true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
-            true);  // Whether analyze HRV not not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
+            true,  // Whether analyze HRV or not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
+            true);  // Whether recognize engagement or not. If enableRemoteHR and enableHRV are false, it is also automatically set to false.
 
     // Layout variables for FaceBox
     private TextView mFaceBoxText;
@@ -393,6 +394,15 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                     mHRVlnLFValContainer.setVisibility(View.VISIBLE);
                     mHRVlnHFValContainer.setVisibility(View.VISIBLE);
                     mAnsBalanceBarGroup.setVisibility(View.VISIBLE);
+                } else {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onRecognizedEngagement(ESRCType.Engagement engagement, ESRCException e) {
+                if (e == null) {
+                    Log.d(TAG, "onRecognizedEngagement: " + engagement.toString());
                 } else {
                     e.printStackTrace();
                 }
