@@ -5,8 +5,8 @@
 5    android:versionName="3.4.11" > <!-- <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="21" /> -->
 6    <uses-sdk
 7        android:minSdkVersion="14"
-7-->D:\0_ESRC_SDK\ESRC-Heart-Android\opencv-3.4.11\java\AndroidManifest.xml
+7-->/Users/hyunw/Workspace/ESRC-Heart-Android/opencv-3.4.11/java/AndroidManifest.xml
 8        android:targetSdkVersion="21" />
-8-->D:\0_ESRC_SDK\ESRC-Heart-Android\opencv-3.4.11\java\AndroidManifest.xml
+8-->/Users/hyunw/Workspace/ESRC-Heart-Android/opencv-3.4.11/java/AndroidManifest.xml
 9
 10</manifest>

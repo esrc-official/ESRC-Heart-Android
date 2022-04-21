@@ -14,7 +14,7 @@
 
 ## Installation
 
-To use our Android samples, you should first install [ESRC Heart SDK for Android](https://github.com/esrc-official/ESRC-Heart-SDK-Android) 2.4.5 or higher on your system and should be received License Key by requesting by our email: **esrc@esrc.co.kr** <br /> 
+To use our Android samples, you should first install [ESRC Heart SDK for Android](https://github.com/esrc-official/ESRC-Heart-SDK-Android) 2.4.6 or higher on your system and should be received License Key by requesting by our email: **esrc@esrc.co.kr** <br /> 
 
 <br />
 
@@ -112,7 +112,7 @@ ESRC.start(
                 // Handle error.
             }
             
-        // The face is detected.
+            // The face is detected.
             // Through the “face” parameter of the onDetectedFace() callback method,
             // you can get the location of the face from the result object
             // that ESRC Heart SDK has passed to the onDetectedFace().
@@ -120,7 +120,6 @@ ESRC.start(
         }
         
         // Please implement other callback method of ESRC.ESRCHandler interface.
-        @Override public void onNotDetectedFace( … ) { … }
         @Override public void onAnalyzedMeasureEnv( … ) { … }
         @Override public void didChangedProgressRatioOnRemoteHR( … ) { … }
         @Override public void onEstimatedRemoteHR( … ) { … }
@@ -131,7 +130,7 @@ ESRC.start(
 
 ### (Optional) Step 4: Feed the ESRC Heart SDK
 
-Feed `OpenCV Mat` on the ESRC Heart SDK. To the `feed()` method, pass the `Mat` image received using a camera in real-time. Please do it at 10 fps. You can skip this step if you follow Step 2: Bind the ESRC Fragment.
+Feed `Mat` on the ESRC Heart SDK. To the `feed()` method, pass the `Mat` image received using a camera in real-time. Please do it at 10 fps. You can skip this step if you follow Step 2: Bind the ESRC Fragment.
 
 ```java
 ESRC.feed(Mat);

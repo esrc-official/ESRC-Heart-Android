@@ -251,32 +251,26 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                 if (e == null) {
                     Log.d(TAG, "onDetectedFace: " + face.toString());
 
-                    // Show FaceBox
-                    int color = getResources().getColor(R.color.primary_color);
-                    mFaceBoxText.setTextColor(color);
-                    mFaceBoxDrawable.setStroke(8, color);
-                } else {
-                    e.printStackTrace();
-                }
-            }
+                    // If face is detected
+                    if (face.getIsDetect()) {
+                        // Show FaceBox
+                        int color = getResources().getColor(R.color.primary_color);
+                        mFaceBoxText.setTextColor(color);
+                        mFaceBoxDrawable.setStroke(8, color);
+                    } else {
+                        // Hide FaceBox
+                        int color = getResources().getColor(R.color.gray);
+                        mFaceBoxText.setTextColor(color);
+                        mFaceBoxDrawable.setStroke(4, color);
 
-            @Override
-            public void onNotDetectedFace(ESRCException e) {
-                if (e == null) {
-                    Log.d(TAG, "onNotDetectedFace");
-
-                    // Hide FaceBox
-                    int color = getResources().getColor(R.color.gray);
-                    mFaceBoxText.setTextColor(color);
-                    mFaceBoxDrawable.setStroke(4, color);
-
-                    // Hide containers
-                    mHRValContainer.setVisibility(View.GONE);
-                    mHRVSdnnValContainer.setVisibility(View.GONE);
-                    mHRVRmssdValContainer.setVisibility(View.GONE);
-                    mHRVlnLFValContainer.setVisibility(View.GONE);
-                    mHRVlnHFValContainer.setVisibility(View.GONE);
-                    mAnsBalanceBarGroup.setVisibility(View.GONE);
+                        // Hide containers
+                        mHRValContainer.setVisibility(View.GONE);
+                        mHRVSdnnValContainer.setVisibility(View.GONE);
+                        mHRVRmssdValContainer.setVisibility(View.GONE);
+                        mHRVlnLFValContainer.setVisibility(View.GONE);
+                        mHRVlnHFValContainer.setVisibility(View.GONE);
+                        mAnsBalanceBarGroup.setVisibility(View.GONE);
+                    }
                 } else {
                     e.printStackTrace();
                 }
