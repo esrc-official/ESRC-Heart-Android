@@ -36,7 +36,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
     private static final String TAG = "MainActivity";
-    private static final String APP_ID = "";  // Application ID.
+    private static final String APP_ID = "APP_ID";  // Application ID.
 
     // Permission
     private static final int PERMISSIONS_REQUEST_CODE = 1000;
@@ -130,32 +130,32 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             }
         });
 
-        // Timer
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Show alert dialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Alert");
-                builder.setMessage("If you want to use the ESRC SDK, please visit the homepage: https://www.esrc.co.kr");
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        MainActivity.this.finish();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-                // Close activity
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        dialog.dismiss();
-                        MainActivity.this.finish();
-                    }
-                }, 5000);
-            }
-        }, 120000);
+//        // Timer
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                // Show alert dialog
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                builder.setTitle("Alert");
+//                builder.setMessage("If you want to use the ESRC SDK, please visit the homepage: https://www.esrc.co.kr");
+//                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        MainActivity.this.finish();
+//                    }
+//                });
+//                AlertDialog dialog = builder.create();
+//                dialog.show();
+//
+//                // Close activity
+//                mHandler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        dialog.dismiss();
+//                        MainActivity.this.finish();
+//                    }
+//                }, 5000);
+//            }
+//        }, 200000);
     }
 
     @Override
