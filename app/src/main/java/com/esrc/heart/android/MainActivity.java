@@ -3,6 +3,7 @@ package com.esrc.heart.android;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
@@ -36,7 +37,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
     private static final String TAG = "MainActivity";
-    private static final String APP_ID = "APP_ID";  // Application ID.
+    private static final String APP_ID = "";  // Application ID.
 
     // Permission
     private static final int PERMISSIONS_REQUEST_CODE = 1000;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             true,  // Whether detect face or not.
             true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
             true,  // Whether analyze HRV or not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
-            true);  // Whether recognize engagement or not. If enableRemoteHR and enableHRV are false, it is also automatically set to false.
+            true,  // Whether recognize engagement or not. If enableRemoteHR and enableHRV are false, it is also automatically set to false.
+            true);  // Whether print information about ESRC processing.
 
     // Layout variables for FaceBox
     private TextView mFaceBoxText;
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         if (null == savedInstanceState) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, ESRCFragment.newInstance())
@@ -130,32 +133,32 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             }
         });
 
-//        // Timer
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                // Show alert dialog
-//                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                builder.setTitle("Alert");
-//                builder.setMessage("If you want to use the ESRC SDK, please visit the homepage: https://www.esrc.co.kr");
-//                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        MainActivity.this.finish();
-//                    }
-//                });
-//                AlertDialog dialog = builder.create();
-//                dialog.show();
-//
-//                // Close activity
-//                mHandler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        dialog.dismiss();
-//                        MainActivity.this.finish();
-//                    }
-//                }, 5000);
-//            }
-//        }, 200000);
+        // Timer
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Show alert dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Alert");
+                builder.setMessage("If you want to use the ESRC SDK, please visit the homepage: https://www.esrc.co.kr");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        MainActivity.this.finish();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                // Close activity
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialog.dismiss();
+                        MainActivity.this.finish();
+                    }
+                }, 5000);
+            }
+        }, 300000);
     }
 
     @Override
@@ -396,7 +399,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             @Override
             public void onRecognizedEngagement(ESRCType.Engagement engagement, ESRCException e) {
                 if (e == null) {
-                    Log.d(TAG, "onRecognizedEngagement: " + engagement.toString());
+//                    Log.d(TAG, "onRecognizedEngagement: " + engagement.toString());
                 } else {
                     e.printStackTrace();
                 }

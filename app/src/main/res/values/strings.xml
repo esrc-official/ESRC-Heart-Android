@@ -63,7 +63,6 @@
     </string>
 
     <string name="main_ans_balance_range_text">
-<!--        "         ◀ Normal ▶     "-->
+        "         ◀ Normal ▶     "
     </string>
-
 </resources>
