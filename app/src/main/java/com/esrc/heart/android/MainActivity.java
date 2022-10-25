@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         if (null == savedInstanceState) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, ESRCFragment.newInstance())
@@ -137,26 +136,10 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Show alert dialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Alert");
-                builder.setMessage("If you want to use the ESRC SDK, please visit the homepage: https://www.esrc.co.kr");
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        MainActivity.this.finish();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-                // Close activity
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        dialog.dismiss();
-                        MainActivity.this.finish();
-                    }
-                }, 5000);
+                Toast.makeText(getApplicationContext(),
+                        "If you want to use the ESRC SDK, please visit the homepage: https://www.esrc.co.kr",
+                        Toast.LENGTH_LONG).show();
+                MainActivity.this.finish();
             }
         }, 300000);
     }
