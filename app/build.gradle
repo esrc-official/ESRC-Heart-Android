@@ -17,8 +17,8 @@ android {
         applicationId "com.esrc.heart.android"
         minSdkVersion 17
         targetSdkVersion 30
-        versionCode 257
-        versionName "2.5.7"
+        versionCode 258
+        versionName "2.5.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,7 +61,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.7'
 
     // ESRC SDK
-    implementation name: 'esrc-heart-sdk-2.5.7', ext: 'aar'
+    implementation name: 'esrc-heart-sdk-2.5.8', ext: 'aar'
 //    implementation name: 'esrc-heart-sdk-extended-gst-2.5.3', ext: 'aar'
 
     // Test

@@ -3,7 +3,6 @@ package com.esrc.heart.android;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
@@ -37,7 +36,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
     private static final String TAG = "MainActivity";
-    private static final String APP_ID = "";  // Application ID.
+    private static final String APP_ID = "99999999-9999-9999-9999-999999999999";  // Application ID.
 
     // Permission
     private static final int PERMISSIONS_REQUEST_CODE = 1000;
