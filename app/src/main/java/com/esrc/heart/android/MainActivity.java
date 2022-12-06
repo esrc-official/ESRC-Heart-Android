@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             true,  // Whether detect face or not.
             true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
             true,  // Whether analyze HRV or not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
-            true,  // Whether recognize engagement or not. If enableRemoteHR and enableHRV are false, it is also automatically set to false.
+            true,  // Whether recognize engagement or not. If enableHRV is false, it is also automatically set to false.
+            true, // Whether recognize mental disorder or not. If enableHRV is false, it is also automatically set to false.
             true);  // Whether print information about ESRC processing.
 
     // Layout variables for FaceBox
@@ -381,7 +382,16 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             @Override
             public void onRecognizedEngagement(ESRCType.Engagement engagement, ESRCException e) {
                 if (e == null) {
-//                    Log.d(TAG, "onRecognizedEngagement: " + engagement.toString());
+                    Log.d(TAG, "onRecognizedEngagement: " + engagement.toString());
+                } else {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onRecognizedMentalDisorder(ESRCType.MentalDisorder mentalDisorder, ESRCException e) {
+                if (e == null) {
+                    Log.d(TAG, "onRecognizedMentalDisorder: " + mentalDisorder.toString());
                 } else {
                     e.printStackTrace();
                 }
