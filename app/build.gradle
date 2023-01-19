@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     packagingOptions {
@@ -16,16 +16,17 @@ android {
     defaultConfig {
         applicationId "com.esrc.heart.android"
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 261
-        versionName "2.6.1"
+        targetSdkVersion 31
+        versionCode 262
+        versionName "2.6.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -62,7 +63,7 @@ dependencies {
     implementation 'com.google.mediapipe:facemesh:latest.release'
 
     // ESRC SDK
-    implementation name: 'esrc-heart-sdk-2.6.1', ext: 'aar'
+    implementation name: 'esrc-heart-sdk-2.6.2', ext: 'aar'
 
     // Test
     testImplementation 'junit:junit:4.+'

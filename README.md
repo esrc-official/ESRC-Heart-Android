@@ -14,7 +14,7 @@
 
 ## Installation
 
-To use our Android samples, you should first install [ESRC Heart SDK for Android](https://github.com/esrc-official/ESRC-Heart-SDK-Android) 2.6.0 or higher on your system and should be received License Key by requesting by our email: **esrc@esrc.co.kr** <br /> 
+To use our Android samples, you should first install [ESRC Heart SDK for Android](https://github.com/esrc-official/ESRC-Heart-SDK-Android) 2.6.2 or higher on your system and should be received License Key by requesting by our email: **esrc@esrc.co.kr** <br /> 
 
 <br />
 

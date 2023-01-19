@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
             true,  // Whether analyze HRV or not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
             true,  // Whether recognize engagement or not. If enableHRV is false, it is also automatically set to false.
-            true, // Whether recognize mental disorder or not. If enableHRV is false, it is also automatically set to false.
             true);  // Whether print information about ESRC processing.
 
     // Layout variables for FaceBox
@@ -362,10 +361,10 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                     }
 
                     // Set HRV values
-                    mHRVSdnnValText.setText(Double.toString((double)Math.round(hrv.getSdnn()*100) / 100));
-                    mHRVRmssdValText.setText(Double.toString((double)Math.round(hrv.getRmssd()*100) / 100));
-                    mHRVlnLFValText.setText(Double.toString((double)Math.round(hrv.getLnLf()*100) / 100));
-                    mHRVlnHFValText.setText(Double.toString((double)Math.round(hrv.getLnHf()*100) / 100));
+                    mHRVSdnnValText.setText(Double.toString((double)Math.round(hrv.getSdnn() * 100) / 100));
+                    mHRVRmssdValText.setText(Double.toString((double)Math.round(hrv.getRmssd() * 100) / 100));
+                    mHRVlnLFValText.setText(Double.toString((double)Math.round(hrv.getLnLf() * 100) / 100));
+                    mHRVlnHFValText.setText(Double.toString((double)Math.round(hrv.getLnHf() * 100) / 100));
                     mAnsBalanceSeekbar.setProgress((int) hrv.getLfHf() + 2);
 
                     // Show container for HRV
@@ -383,15 +382,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             public void onRecognizedEngagement(ESRCType.Engagement engagement, ESRCException e) {
                 if (e == null) {
                     Log.d(TAG, "onRecognizedEngagement: " + engagement.toString());
-                } else {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onRecognizedMentalDisorder(ESRCType.MentalDisorder mentalDisorder, ESRCException e) {
-                if (e == null) {
-                    Log.d(TAG, "onRecognizedMentalDisorder: " + mentalDisorder.toString());
                 } else {
                     e.printStackTrace();
                 }
